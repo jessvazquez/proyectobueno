@@ -7,6 +7,7 @@ package s3.p2;
 
 import cjb.ci.CtrlInterfaz;
 import cjb.ci.Mensaje;
+import cjb.ci.Validaciones;
 import java.awt.Cursor;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -36,7 +37,8 @@ public class VtnBajasA extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jPanel1 = new javax.swing.JPanel();
         tfNumeroEmpleado = new javax.swing.JTextField();
@@ -61,14 +63,42 @@ public class VtnBajasA extends javax.swing.JFrame
         jPanel1.setForeground(new java.awt.Color(4, 83, 123));
 
         tfNumeroEmpleado.setBackground(new java.awt.Color(0, 102, 204));
+        tfNumeroEmpleado.setEnabled(false);
+        tfNumeroEmpleado.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                tfNumeroEmpleadoKeyPressed(evt);
+            }
+        });
 
         tfTurno.setBackground(new java.awt.Color(0, 102, 204));
+        tfTurno.setEnabled(false);
+        tfTurno.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                tfTurnoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
+                tfTurnoKeyReleased(evt);
+            }
+        });
 
         sad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         sad.setForeground(new java.awt.Color(255, 255, 255));
         sad.setText("Nombre");
 
         tfNombre.setBackground(new java.awt.Color(0, 102, 204));
+        tfNombre.setEnabled(false);
+        tfNombre.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                tfNombreKeyPressed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -79,6 +109,14 @@ public class VtnBajasA extends javax.swing.JFrame
         jLabel4.setText("Area");
 
         tfContrasena.setBackground(new java.awt.Color(0, 102, 204));
+        tfContrasena.setEnabled(false);
+        tfContrasena.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                tfContrasenaKeyPressed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,25 +125,46 @@ public class VtnBajasA extends javax.swing.JFrame
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back.png"))); // NOI18N
         btnCancelar.setBorderPainted(false);
         btnCancelar.setContentAreaFilled(false);
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnCancelar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnCancelarActionPerformed(evt);
             }
         });
 
         tfArea.setBackground(new java.awt.Color(0, 102, 204));
+        tfArea.setEnabled(false);
+        tfArea.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                tfAreaKeyPressed(evt);
+            }
+        });
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/submit_1.png"))); // NOI18N
+        btnAceptar.setText("Buscar");
         btnAceptar.setToolTipText("");
         btnAceptar.setBorderPainted(false);
         btnAceptar.setContentAreaFilled(false);
-        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnAceptar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnAceptarActionPerformed(evt);
             }
         });
 
         tfEdad.setBackground(new java.awt.Color(0, 102, 204));
+        tfEdad.setEnabled(false);
+        tfEdad.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                tfEdadKeyPressed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -122,39 +181,39 @@ public class VtnBajasA extends javax.swing.JFrame
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(104, 104, 104)
                 .addComponent(btnCancelar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
-                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(88, 88, 88))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(31, 31, 31)
-                            .addComponent(tfContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfNumeroEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(31, 31, 31)
+                            .addComponent(tfTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(31, 31, 31)
+                            .addComponent(tfEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(sad, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(31, 31, 31)
+                            .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
-                                .addComponent(tfNumeroEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(tfContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
-                                .addComponent(tfArea, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(tfTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(tfEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(sad, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addContainerGap(20, Short.MAX_VALUE)))
+                                .addComponent(tfArea, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addContainerGap(83, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,6 +332,52 @@ public class VtnBajasA extends javax.swing.JFrame
             btnCancelarActionPerformed(evt);
         }        // TODO add your handling code here:        // TODO add your handling code here:
     }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void tfEdadKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfEdadKeyPressed
+    {//GEN-HEADEREND:event_tfEdadKeyPressed
+        // TODO add your handling code here:
+        Validaciones.enter(this, evt, evt);
+    }//GEN-LAST:event_tfEdadKeyPressed
+
+    private void tfTurnoKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfTurnoKeyReleased
+    {//GEN-HEADEREND:event_tfTurnoKeyReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tfTurnoKeyReleased
+
+    private void tfTurnoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfTurnoKeyPressed
+    {//GEN-HEADEREND:event_tfTurnoKeyPressed
+        // TODO add your handling code here:
+                Validaciones.enter(this, evt, tfTurno);        // TODO add your handling code here:
+
+    }//GEN-LAST:event_tfTurnoKeyPressed
+
+    private void tfAreaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfAreaKeyPressed
+    {//GEN-HEADEREND:event_tfAreaKeyPressed
+        // TODO add your handling code here:
+                Validaciones.enter(this, evt, tfArea);        // TODO add your handling code here:
+
+                
+    }//GEN-LAST:event_tfAreaKeyPressed
+
+    private void tfNumeroEmpleadoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfNumeroEmpleadoKeyPressed
+    {//GEN-HEADEREND:event_tfNumeroEmpleadoKeyPressed
+        // TODO add your handling code here:
+        Validaciones.enter(this, evt, tfNumeroEmpleado);        // TODO add your handling code here:
+
+    }//GEN-LAST:event_tfNumeroEmpleadoKeyPressed
+
+    private void tfContrasenaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfContrasenaKeyPressed
+    {//GEN-HEADEREND:event_tfContrasenaKeyPressed
+        // TODO add your handling code here:
+        Validaciones.enter(this, evt, tfContrasena);        // TODO add your handling code here:
+
+    }//GEN-LAST:event_tfContrasenaKeyPressed
+
+    private void tfNombreKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfNombreKeyPressed
+    {//GEN-HEADEREND:event_tfNombreKeyPressed
+        Validaciones.enter(this, evt, tfNombre);        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNombreKeyPressed
 
     /**
      * @param args the command line arguments

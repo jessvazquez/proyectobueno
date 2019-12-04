@@ -5,6 +5,7 @@
  */
 package s3.p2;
 
+import cjb.ci.CtrlInterfaz;
 import cjb.ci.Mensaje;
 import cjb.ci.Validaciones;
 import java.awt.Cursor;
@@ -34,7 +35,8 @@ public class VtnInicioSesion extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jPanel1 = new javax.swing.JPanel();
         tfNumeroEmpleado = new javax.swing.JTextField();
@@ -52,21 +54,25 @@ public class VtnInicioSesion extends javax.swing.JFrame
 
         tfNumeroEmpleado.setBackground(new java.awt.Color(0, 102, 204));
         tfNumeroEmpleado.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        tfNumeroEmpleado.setActionCommand("<Not Set>");
         tfNumeroEmpleado.setAlignmentX(0.0F);
         tfNumeroEmpleado.setAlignmentY(0.0F);
         tfNumeroEmpleado.setCaretColor(new java.awt.Color(146, 175, 252));
         tfNumeroEmpleado.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        tfNumeroEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        tfNumeroEmpleado.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 tfNumeroEmpleadoActionPerformed(evt);
             }
         });
-        tfNumeroEmpleado.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tfNumeroEmpleado.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tfNumeroEmpleadoKeyPressed(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
                 tfNumeroEmpleadoKeyTyped(evt);
             }
         });
@@ -79,16 +85,21 @@ public class VtnInicioSesion extends javax.swing.JFrame
         tfContrasena.setBackground(new java.awt.Color(0, 102, 204));
         tfContrasena.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         tfContrasena.setEnabled(false);
-        tfContrasena.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        tfContrasena.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 tfContrasenaActionPerformed(evt);
             }
         });
-        tfContrasena.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tfContrasena.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tfContrasenaKeyPressed(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
                 tfContrasenaKeyTyped(evt);
             }
         });
@@ -102,8 +113,10 @@ public class VtnInicioSesion extends javax.swing.JFrame
         btnRefrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/refresh.png"))); // NOI18N
         btnRefrescar.setBorderPainted(false);
         btnRefrescar.setContentAreaFilled(false);
-        btnRefrescar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnRefrescar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnRefrescarActionPerformed(evt);
             }
         });
@@ -114,9 +127,18 @@ public class VtnInicioSesion extends javax.swing.JFrame
         btnAceptar.setAlignmentY(0.0F);
         btnAceptar.setBorderPainted(false);
         btnAceptar.setContentAreaFilled(false);
-        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnAceptar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnAceptarActionPerformed(evt);
+            }
+        });
+        btnAceptar.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                btnAceptarKeyPressed(evt);
             }
         });
 
@@ -228,6 +250,8 @@ public class VtnInicioSesion extends javax.swing.JFrame
          */
         if (bandera != 1)
         {
+            this.setCursor(Cursor.DEFAULT_CURSOR); // TODO add your handling code here:
+
             Mensaje.error(this, "Usuario incorrecto!");
         }
         this.setCursor(Cursor.DEFAULT_CURSOR); // TODO add your handling code here:
@@ -236,6 +260,7 @@ public class VtnInicioSesion extends javax.swing.JFrame
 
     private void btnRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefrescarActionPerformed
         // TODO add your handling code here:
+        CtrlInterfaz.limpia(tfContrasena, tfNumeroEmpleado);
     }//GEN-LAST:event_btnRefrescarActionPerformed
 
     private void tfNumeroEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNumeroEmpleadoActionPerformed
@@ -244,7 +269,7 @@ public class VtnInicioSesion extends javax.swing.JFrame
 
     private void tfNumeroEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNumeroEmpleadoKeyTyped
         // TODO add your handling code here:
-        if (tfNumeroEmpleado.getText().length() == 5)
+        if (tfNumeroEmpleado.getText().length() == 4)
         {
             evt.consume();
         } else
@@ -271,6 +296,17 @@ public class VtnInicioSesion extends javax.swing.JFrame
         // TODO add your handling code here:
         Validaciones.enter(this, evt, btnAceptar);
     }//GEN-LAST:event_tfContrasenaKeyPressed
+
+    private void btnAceptarKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_btnAceptarKeyPressed
+    {//GEN-HEADEREND:event_btnAceptarKeyPressed
+        // TODO add your handling code here:
+        this.setCursor(Cursor.WAIT_CURSOR);
+        if (evt.getKeyChar() == '\n')
+        {
+            btnAceptarActionPerformed(null);
+        }
+         this.setCursor(Cursor.DEFAULT_CURSOR);
+    }//GEN-LAST:event_btnAceptarKeyPressed
 
     /**
      * @param args the command line arguments

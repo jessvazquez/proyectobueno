@@ -5,16 +5,13 @@
  */
 package s3.p2;
 
-import cjb.ci.CtrlInterfaz;
 import cjb.ci.Mensaje;
 import cjb.ci.Validaciones;
 import java.awt.Cursor;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -25,7 +22,12 @@ import javax.persistence.Persistence;
 public class VtnPrincipal extends javax.swing.JFrame
 {
 
-    // int reportes = 0;
+    String noEmpleado;
+    DateFormat hourFormat = new SimpleDateFormat("HH:mm");
+    Date date = new Date();
+    int estado;
+    int reportes;
+
     /**
      * Creates new form VtnP
      */
@@ -41,10 +43,11 @@ public class VtnPrincipal extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jPanel1 = new javax.swing.JPanel();
-        btnEntrada = new javax.swing.JButton();
+        javax.swing.JButton btnEntrada = new javax.swing.JButton();
         btnIniciosesion = new javax.swing.JButton();
         rSLabelFecha1 = new rojeru_san.RSLabelFecha();
         rSLabelHora1 = new rojeru_san.RSLabelHora();
@@ -62,9 +65,26 @@ public class VtnPrincipal extends javax.swing.JFrame
         btnEntrada.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEntrada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/submit_1.png"))); // NOI18N
         btnEntrada.setContentAreaFilled(false);
-        btnEntrada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnEntrada.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnEntradaActionPerformed(evt);
+            }
+        });
+        btnEntrada.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                btnEntradaKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
+                btnEntradaKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                btnEntradaKeyTyped(evt);
             }
         });
 
@@ -72,8 +92,10 @@ public class VtnPrincipal extends javax.swing.JFrame
         btnIniciosesion.setBorderPainted(false);
         btnIniciosesion.setContentAreaFilled(false);
         btnIniciosesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnIniciosesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnIniciosesion.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnIniciosesionActionPerformed(evt);
             }
         });
@@ -93,16 +115,21 @@ public class VtnPrincipal extends javax.swing.JFrame
 
         tfClave.setBackground(new java.awt.Color(0, 102, 204));
         tfClave.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        tfClave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        tfClave.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 tfClaveActionPerformed(evt);
             }
         });
-        tfClave.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tfClave.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tfClaveKeyPressed(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
                 tfClaveKeyTyped(evt);
             }
         });
@@ -140,8 +167,8 @@ public class VtnPrincipal extends javax.swing.JFrame
                         .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, 112))
+                .addComponent(btnEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,6 +207,7 @@ public class VtnPrincipal extends javax.swing.JFrame
 
     private void tfClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfClaveActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_tfClaveActionPerformed
 
     private void btnIniciosesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciosesionActionPerformed
@@ -191,105 +219,131 @@ public class VtnPrincipal extends javax.swing.JFrame
 
     private void btnEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntradaActionPerformed
         this.setCursor(Cursor.WAIT_CURSOR);
-        String noEmpleado = tfClave.getText();
-        DateFormat hourFormat = new SimpleDateFormat("HH:mm");
-        Date date = new Date();
-        int estado;
-        int reportes;
 
+        noEmpleado = tfClave.getText();
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ESProyectoPU");
         EmpleadosJpaController p = new EmpleadosJpaController(emf);
         Empleados ap = p.findEmpleados(Integer.parseInt(noEmpleado));
-        String entrada = ap.getHoraEntrada().toString();
+
+        String entrada = ap.getHoraEntrada();
         estado = ap.getEstatus();
-        if (noEmpleado != null)
+
+        if (ap != null)
         {
-
-            if (ap != null)
+            if (ap.getEstatus() == 0)
             {
-                if (ap.getEstatus() == 0)
+                if (entrada.equals(hourFormat.format(date)))
                 {
-                    if (entrada.equals(hourFormat.format(date)))
+                    Mensaje.exito(this, "Entrada registrada en tiempo " + hourFormat.format(date));
+                    estado = 1;
+                    ap.setEstatus(estado);
+                    try
                     {
-                        Mensaje.exito(this, "Entrada registrada en tiempo " + hourFormat.format(date));
-                        estado = 1;
-                        ap.setEstatus(estado);
-                        try
-                        {
-                            p.edit(ap);
-                        } catch (Exception ex)
-                        {
-                            Mensaje.error(this, "No se ha podido registrar entrada");
-                        }
-                    } else
+                        p.edit(ap);
+                    } catch (Exception ex)
                     {
-                        Mensaje.error(this, "Usuario registrado con retardo " + hourFormat.format(date));
-                        estado = 1;
-                        ap.setEstatus(estado);
-                        reportes = ap.getIncidentes() + 1;
-                        ap.setIncidentes(reportes);
-
-                        try
-                        {
-                            p.edit(ap);
-
-                        } catch (Exception ex)
-                        {
-                            Mensaje.error(this, "No se ha podido registrar entrada con retardo");
-                        }
+                        Mensaje.error(this, "No se ha podido registrar entrada");
                     }
                 } else
                 {
-                    String salida = ap.getHoraSalida().toString();
-                    if (salida.equals(hourFormat.format(date)))
+                    Mensaje.error(this, "Usuario registrado con retardo " + hourFormat.format(date));
+                    estado = 1;
+                    ap.setEstatus(estado);
+                    reportes = ap.getRetardos() + 1;
+                    ap.setRetardos(reportes);
+                    try
                     {
-                        Mensaje.exito(this, "Salida registrada en tiempo " + hourFormat.format(date));
-                        estado = ap.getEstatus();
-                        estado = 0;
-                        ap.setEstatus(estado);
+                        p.edit(ap);
 
-                        try
-                        {
-                            p.edit(ap);
-                        } catch (Exception ex)
-                        {
-                            Mensaje.error(this, "No se ha podido registrar salida");
-                        }
-                    } else
+                    } catch (Exception ex)
                     {
-                        Mensaje.error(this, "Salida registrada a destiempo " + hourFormat.format(date));
-                        estado = ap.getEstatus();
-                        estado = 0;
-                        ap.setEstatus(estado);
-                        reportes = ap.getIncidentes() + 1;
-                        ap.setIncidentes(reportes);
-                        try
-                        {
-                            p.edit(ap);
-                        } catch (Exception ex)
-                        {
-                            Mensaje.error(this, "No se ha podido registrar salida a destiempo");
-                        }
+                        Mensaje.error(this, "No se ha podido registrar entrada con retardo");
                     }
                 }
             } else
             {
-                this.setCursor(Cursor.DEFAULT_CURSOR);
-                Mensaje.error(this, "Empleado no encontrado, comuniquese con la administracion");
+                String salida = ap.getHoraSalida().toString();
+                if (salida.equals(hourFormat.format(date)))
+                {
+                    Mensaje.exito(this, "Salida registrada en tiempo " + hourFormat.format(date));
+                    estado = ap.getEstatus();
+                    estado = 0;
+                    ap.setEstatus(estado);
+
+                    try
+                    {
+                        p.edit(ap);
+                    } catch (Exception ex)
+                    {
+                        Mensaje.error(this, "No se ha podido registrar salida");
+                    }
+
+                } else
+                {
+                    Mensaje.error(this, "Salida registrada a destiempo " + hourFormat.format(date));
+                    estado = ap.getEstatus();
+                    estado = 0;
+                    ap.setEstatus(estado);
+                    reportes = ap.getSalidasDestiempo() + 1;
+                    ap.setSalidasDestiempo(reportes);
+                    try
+                    {
+                        p.edit(ap);
+                    } catch (Exception ex)
+                    {
+                        Mensaje.error(this, "No se ha podido registrar salida a destiempo");
+                    }
+                }
             }
+        } else
+        {
+            this.setCursor(Cursor.DEFAULT_CURSOR);
+            Mensaje.error(this, "numero de empleado " + noEmpleado
+                    + " no encontrado, comuniquese con la administracion");
         }
+
         this.setCursor(Cursor.DEFAULT_CURSOR);
+
+
     }//GEN-LAST:event_btnEntradaActionPerformed
 
     private void tfClaveKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfClaveKeyPressed
         // TODO add your handling code here:
-        Validaciones.enter(this, evt, btnEntrada);
+
     }//GEN-LAST:event_tfClaveKeyPressed
 
     private void tfClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfClaveKeyTyped
         // TODO add your handling code here:
-        Validaciones.validaEntero(evt);
+        if (tfClave.getText().length() == 4)
+        {
+            evt.consume();
+        } else
+        {
+            Validaciones.validaEntero(evt);
+
+        }
     }//GEN-LAST:event_tfClaveKeyTyped
+
+    private void btnEntradaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_btnEntradaKeyPressed
+    {//GEN-HEADEREND:event_btnEntradaKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar() == '\n')
+        {
+            btnEntradaActionPerformed(null);
+        }
+
+    }//GEN-LAST:event_btnEntradaKeyPressed
+
+    private void btnEntradaKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_btnEntradaKeyTyped
+    {//GEN-HEADEREND:event_btnEntradaKeyTyped
+        Validaciones.validaAlfanumerico(evt);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEntradaKeyTyped
+
+    private void btnEntradaKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_btnEntradaKeyReleased
+    {//GEN-HEADEREND:event_btnEntradaKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEntradaKeyReleased
 
     /**
      * @param args the command line arguments
@@ -339,7 +393,6 @@ public class VtnPrincipal extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEntrada;
     private javax.swing.JButton btnIniciosesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

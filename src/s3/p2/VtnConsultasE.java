@@ -61,14 +61,19 @@ public class VtnConsultasE extends javax.swing.JFrame
         empleadosList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : empleadosQuery.getResultList();
         empleadosQuery1 = java.beans.Beans.isDesignTime() ? null : ESProyectoPUEntityManager.createQuery("SELECT e FROM Empleados e");
         empleadosList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : empleadosQuery1.getResultList();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
-        btnGenerar = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
         txtRuta = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
+        btnGenerar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consultas de empleados");
+
+        jPanel2.setBackground(new java.awt.Color(4, 83, 123));
+
+        tabla.setBackground(new java.awt.Color(0, 102, 255));
 
         org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, empleadosList1, tabla);
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${numeroEmpleado}"));
@@ -92,22 +97,27 @@ public class VtnConsultasE extends javax.swing.JFrame
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${horaSalida}"));
         columnBinding.setColumnName("Hora de salida");
         columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${incidentes}"));
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${retardos}"));
         columnBinding.setColumnName("Incidentes");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${salidasDestiempo}"));
+        columnBinding.setColumnName("Salidas a destiempo");
         columnBinding.setColumnClass(Integer.class);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
         jScrollPane1.setViewportView(tabla);
 
-        btnGenerar.setText("Generar reporte");
-        btnGenerar.addActionListener(new java.awt.event.ActionListener()
+        txtRuta.setBackground(new java.awt.Color(0, 102, 204));
+        txtRuta.setForeground(new java.awt.Color(69, 73, 74));
+        txtRuta.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                btnGenerarActionPerformed(evt);
+                txtRutaActionPerformed(evt);
             }
         });
 
+        btnBuscar.setBackground(new java.awt.Color(0, 102, 204));
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener()
         {
@@ -117,46 +127,66 @@ public class VtnConsultasE extends javax.swing.JFrame
             }
         });
 
-        txtRuta.addActionListener(new java.awt.event.ActionListener()
+        btnGenerar.setBackground(new java.awt.Color(0, 102, 204));
+        btnGenerar.setText("Generar reporte");
+        btnGenerar.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                txtRutaActionPerformed(evt);
+                btnGenerarActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(txtRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 124, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(277, 277, 277)
+                .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(297, 297, 297)
-                        .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(txtRuta))
-                .addGap(18, 18, 18)
-                .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         bindingGroup.bind();
@@ -198,32 +228,36 @@ public class VtnConsultasE extends javax.swing.JFrame
             p.setAlignment(Element.ALIGN_CENTER);
             doc.add(p);
 
-            PdfPTable tabla = new PdfPTable(5);
+            PdfPTable tabla = new PdfPTable(6);
             tabla.setWidthPercentage(100);
 
             PdfPCell c1 = new PdfPCell(new Phrase("Numero de empleado", negrita));
             PdfPCell c2 = new PdfPCell(new Phrase("Nombre", negrita));
             PdfPCell c3 = new PdfPCell(new Phrase("Turno", negrita));
             PdfPCell c4 = new PdfPCell(new Phrase("Area", negrita));
-            PdfPCell c5 = new PdfPCell(new Phrase("Incidentes", negrita));
+            PdfPCell c5 = new PdfPCell(new Phrase("Retardos", negrita));
+            PdfPCell c6 = new PdfPCell(new Phrase("Salidas a destiempo", negrita));
 
             c1.setHorizontalAlignment(Element.ALIGN_CENTER);
             c2.setHorizontalAlignment(Element.ALIGN_CENTER);
             c3.setHorizontalAlignment(Element.ALIGN_CENTER);
             c4.setHorizontalAlignment(Element.ALIGN_CENTER);
             c5.setHorizontalAlignment(Element.ALIGN_CENTER);
+            c6.setHorizontalAlignment(Element.ALIGN_CENTER);
 
             c1.setBackgroundColor(BaseColor.LIGHT_GRAY);
             c2.setBackgroundColor(BaseColor.LIGHT_GRAY);
             c3.setBackgroundColor(BaseColor.LIGHT_GRAY);
             c4.setBackgroundColor(BaseColor.LIGHT_GRAY);
             c5.setBackgroundColor(BaseColor.LIGHT_GRAY);
+            c6.setBackgroundColor(BaseColor.LIGHT_GRAY);
 
             tabla.addCell(c1);
             tabla.addCell(c2);
             tabla.addCell(c3);
             tabla.addCell(c4);
             tabla.addCell(c5);
+            tabla.addCell(c6);
 
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("ESProyectoPU");
             EmpleadosJpaController emp = new EmpleadosJpaController(emf);
@@ -234,7 +268,8 @@ public class VtnConsultasE extends javax.swing.JFrame
                 tabla.addCell("" + listE.get(i).getNombre());
                 tabla.addCell("" + listE.get(i).getTurno());
                 tabla.addCell("" + listE.get(i).getArea());
-                tabla.addCell("" + listE.get(i).getIncidentes());
+                tabla.addCell("" + listE.get(i).getRetardos());
+                tabla.addCell("" + listE.get(i).getSalidasDestiempo());
             }
 
             doc.add(tabla);
@@ -329,6 +364,7 @@ public class VtnConsultasE extends javax.swing.JFrame
     private java.util.List<s3.p2.Empleados> empleadosList1;
     private javax.persistence.Query empleadosQuery;
     private javax.persistence.Query empleadosQuery1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla;
     private javax.swing.JTextField txtRuta;

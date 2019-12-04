@@ -36,7 +36,8 @@ public class VtnBajasE extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jPanel1 = new javax.swing.JPanel();
         tfNombre = new javax.swing.JTextField();
@@ -58,8 +59,10 @@ public class VtnBajasE extends javax.swing.JFrame
         jPanel1.setBackground(new java.awt.Color(4, 83, 123));
 
         tfNombre.setBackground(new java.awt.Color(0, 102, 204));
-        tfNombre.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tfNombre.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tfNombreKeyPressed(evt);
             }
         });
@@ -74,16 +77,27 @@ public class VtnBajasE extends javax.swing.JFrame
 
         tfArea.setBackground(new java.awt.Color(0, 102, 204));
         tfArea.setEnabled(false);
-        tfArea.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tfArea.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tfAreaKeyPressed(evt);
             }
         });
 
         tfEdad.setBackground(new java.awt.Color(0, 102, 204));
         tfEdad.setEnabled(false);
-        tfEdad.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tfEdad.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                tfEdadActionPerformed(evt);
+            }
+        });
+        tfEdad.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tfEdadKeyPressed(evt);
             }
         });
@@ -98,16 +112,20 @@ public class VtnBajasE extends javax.swing.JFrame
 
         tfNumeroEmpleado.setBackground(new java.awt.Color(0, 102, 204));
         tfNumeroEmpleado.setEnabled(false);
-        tfNumeroEmpleado.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tfNumeroEmpleado.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tfNumeroEmpleadoKeyPressed(evt);
             }
         });
 
         tfTurno.setBackground(new java.awt.Color(0, 102, 204));
         tfTurno.setEnabled(false);
-        tfTurno.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tfTurno.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tfTurnoKeyPressed(evt);
             }
         });
@@ -119,12 +137,22 @@ public class VtnBajasE extends javax.swing.JFrame
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back.png"))); // NOI18N
         btnCancelar.setBorderPainted(false);
         btnCancelar.setContentAreaFilled(false);
+        btnCancelar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/submit_1.png"))); // NOI18N
+        btnAceptar.setText("Buscar");
         btnAceptar.setBorderPainted(false);
         btnAceptar.setContentAreaFilled(false);
-        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnAceptar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnAceptarActionPerformed(evt);
             }
         });
@@ -134,11 +162,11 @@ public class VtnBajasE extends javax.swing.JFrame
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(218, Short.MAX_VALUE)
+                .addContainerGap(219, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
                 .addGap(151, 151, 151)
-                .addComponent(btnAceptar)
-                .addGap(101, 101, 101))
+                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -170,12 +198,10 @@ public class VtnBajasE extends javax.swing.JFrame
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(348, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAceptar)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnCancelar)
-                        .addGap(15, 15, 15)))
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar))
+                .addGap(21, 21, 21))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -248,6 +274,7 @@ public class VtnBajasE extends javax.swing.JFrame
         {
             String folio = JOptionPane.showInputDialog(this,
                     "Dame el numero de empleado a eliminar :");
+            this.setCursor(Cursor.DEFAULT_CURSOR);
             if (folio != null)
             {
 
@@ -277,13 +304,15 @@ public class VtnBajasE extends javax.swing.JFrame
             }
         } else
         {
-            this.setCursor(Cursor.WAIT_CURSOR);
             if (Mensaje.pregunta(this, "Esta seguro de eliminar este registro") == 0)
             {
+               
+
                 EntityManagerFactory emf = Persistence.createEntityManagerFactory("ESProyectoPU");
                 EmpleadosJpaController p = new EmpleadosJpaController(emf);
                 try
                 {
+                    this.setCursor(Cursor.WAIT_CURSOR);
                     p.destroy(pos);
                     Mensaje.exito(this, "Dato eliminado correctamente!");
                 } catch (Exception ex)
@@ -291,10 +320,20 @@ public class VtnBajasE extends javax.swing.JFrame
                     Mensaje.error(this, "Error..." + ex.toString());
                 }
             }
-        //    btnCancelarActionPerformed(evt);
+            //    btnCancelarActionPerformed(evt);
             this.setCursor(Cursor.DEFAULT_CURSOR);
         }        // TODO add your handling code here:        // TODO add your handling code here:
     }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCancelarActionPerformed
+    {//GEN-HEADEREND:event_btnCancelarActionPerformed
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void tfEdadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_tfEdadActionPerformed
+    {//GEN-HEADEREND:event_tfEdadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfEdadActionPerformed
 
     /**
      * @param args the command line arguments

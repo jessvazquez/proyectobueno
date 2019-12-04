@@ -33,7 +33,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Empleados.findByHoraEntrada", query = "SELECT e FROM Empleados e WHERE e.horaEntrada = :horaEntrada"),
     @NamedQuery(name = "Empleados.findByHoraSalida", query = "SELECT e FROM Empleados e WHERE e.horaSalida = :horaSalida"),
     @NamedQuery(name = "Empleados.findByEstatus", query = "SELECT e FROM Empleados e WHERE e.estatus = :estatus"),
-    @NamedQuery(name = "Empleados.findByIncidentes", query = "SELECT e FROM Empleados e WHERE e.incidentes = :incidentes")
+    @NamedQuery(name = "Empleados.findByRetardos", query = "SELECT e FROM Empleados e WHERE e.retardos = :retardos"),
+    @NamedQuery(name = "Empleados.findBySalidasDestiempo", query = "SELECT e FROM Empleados e WHERE e.salidasDestiempo = :salidasDestiempo")
 })
 public class Empleados implements Serializable
 {
@@ -64,8 +65,11 @@ public class Empleados implements Serializable
     @Column(name = "estatus")
     private int estatus;
     @Basic(optional = false)
-    @Column(name = "incidentes")
-    private int incidentes;
+    @Column(name = "retardos")
+    private int retardos;
+    @Basic(optional = false)
+    @Column(name = "salidasDestiempo")
+    private int salidasDestiempo;
 
     public Empleados()
     {
@@ -76,7 +80,7 @@ public class Empleados implements Serializable
         this.numeroEmpleado = numeroEmpleado;
     }
 
-    public Empleados(Integer numeroEmpleado, String nombre, int edad, String turno, String area, String horaEntrada, String horaSalida, int estatus, int incidentes)
+    public Empleados(Integer numeroEmpleado, String nombre, int edad, String turno, String area, String horaEntrada, String horaSalida, int estatus, int retardos, int salidasDestiempo)
     {
         this.numeroEmpleado = numeroEmpleado;
         this.nombre = nombre;
@@ -86,7 +90,8 @@ public class Empleados implements Serializable
         this.horaEntrada = horaEntrada;
         this.horaSalida = horaSalida;
         this.estatus = estatus;
-        this.incidentes = incidentes;
+        this.retardos = retardos;
+        this.salidasDestiempo = salidasDestiempo;
     }
 
     public String getNombre()
@@ -169,14 +174,24 @@ public class Empleados implements Serializable
         this.estatus = estatus;
     }
 
-    public int getIncidentes()
+    public int getRetardos()
     {
-        return incidentes;
+        return retardos;
     }
 
-    public void setIncidentes(int incidentes)
+    public void setRetardos(int retardos)
     {
-        this.incidentes = incidentes;
+        this.retardos = retardos;
+    }
+
+    public int getSalidasDestiempo()
+    {
+        return salidasDestiempo;
+    }
+
+    public void setSalidasDestiempo(int salidasDestiempo)
+    {
+        this.salidasDestiempo = salidasDestiempo;
     }
 
     @Override

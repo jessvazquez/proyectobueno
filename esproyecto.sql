@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2019 a las 03:27:55
+-- Tiempo de generación: 04-12-2019 a las 02:57:51
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.2.22
 
@@ -62,6 +62,9 @@ CREATE TABLE IF NOT EXISTS `empleados` (
   `area` varchar(20) NOT NULL,
   `horaEntrada` varchar(20) NOT NULL,
   `horaSalida` varchar(20) NOT NULL,
+  `estatus` int(1) NOT NULL,
+  `retardos` int(20) NOT NULL,
+  `salidasDestiempo` int(20) NOT NULL,
   PRIMARY KEY (`numeroEmpleado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -69,10 +72,9 @@ CREATE TABLE IF NOT EXISTS `empleados` (
 -- Volcado de datos para la tabla `empleados`
 --
 
-INSERT INTO `empleados` (`nombre`, `edad`, `turno`, `numeroEmpleado`, `area`, `horaEntrada`, `horaSalida`) VALUES
-('oo', 12, 'o', 45, 'o', 'o', 'o'),
-('Mauro Sanchez Sanchez', 45, 'vespertino', 12345, 'Desarrollo', 'dads', 'sadas'),
-('david', 12, 'ver', 1522726, 'Mantenimiento', '', '');
+INSERT INTO `empleados` (`nombre`, `edad`, `turno`, `numeroEmpleado`, `area`, `horaEntrada`, `horaSalida`, `estatus`, `retardos`, `salidasDestiempo`) VALUES
+('david', 0, 'vespertino', 987, 'mantenimiento', '17:00', '18:00', 0, 27, 0),
+('Ricardo', 0, 'a', 1347, 'b', '', '', 1, 32, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

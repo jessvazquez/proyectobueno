@@ -36,7 +36,8 @@ public class VtnAltasE extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
@@ -56,6 +57,7 @@ public class VtnAltasE extends javax.swing.JFrame
         jLabel6 = new javax.swing.JLabel();
         tfNumeroEmpleado = new javax.swing.JTextField();
         tfHoraSalida = new javax.swing.JTextField();
+        btnRefrescar = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -70,11 +72,14 @@ public class VtnAltasE extends javax.swing.JFrame
         sad.setText("Nombre:");
 
         tfNombre.setBackground(new java.awt.Color(0, 102, 204));
-        tfNombre.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tfNombre.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tfNombreKeyPressed(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
                 tfNombreKeyTyped(evt);
             }
         });
@@ -85,11 +90,14 @@ public class VtnAltasE extends javax.swing.JFrame
 
         tfEdad.setBackground(new java.awt.Color(0, 102, 204));
         tfEdad.setEnabled(false);
-        tfEdad.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tfEdad.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tfEdadKeyPressed(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
                 tfEdadKeyTyped(evt);
             }
         });
@@ -100,11 +108,14 @@ public class VtnAltasE extends javax.swing.JFrame
 
         tfTurno.setBackground(new java.awt.Color(0, 102, 204));
         tfTurno.setEnabled(false);
-        tfTurno.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tfTurno.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tfTurnoKeyPressed(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
                 tfTurnoKeyTyped(evt);
             }
         });
@@ -115,11 +126,14 @@ public class VtnAltasE extends javax.swing.JFrame
 
         tfArea.setBackground(new java.awt.Color(0, 102, 204));
         tfArea.setEnabled(false);
-        tfArea.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tfArea.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tfAreaKeyPressed(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
                 tfAreaKeyTyped(evt);
             }
         });
@@ -130,11 +144,14 @@ public class VtnAltasE extends javax.swing.JFrame
 
         tfHoraEntrada.setBackground(new java.awt.Color(0, 102, 204));
         tfHoraEntrada.setEnabled(false);
-        tfHoraEntrada.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tfHoraEntrada.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tfHoraEntradaKeyPressed(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
                 tfHoraEntradaKeyTyped(evt);
             }
         });
@@ -142,8 +159,10 @@ public class VtnAltasE extends javax.swing.JFrame
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/submit_1.png"))); // NOI18N
         btnAceptar.setBorderPainted(false);
         btnAceptar.setContentAreaFilled(false);
-        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnAceptar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnAceptarActionPerformed(evt);
             }
         });
@@ -151,8 +170,10 @@ public class VtnAltasE extends javax.swing.JFrame
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back.png"))); // NOI18N
         btnRegresar.setBorderPainted(false);
         btnRegresar.setContentAreaFilled(false);
-        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnRegresar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnRegresarActionPerformed(evt);
             }
         });
@@ -167,23 +188,42 @@ public class VtnAltasE extends javax.swing.JFrame
 
         tfNumeroEmpleado.setBackground(new java.awt.Color(0, 102, 204));
         tfNumeroEmpleado.setEnabled(false);
-        tfNumeroEmpleado.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tfNumeroEmpleado.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tfNumeroEmpleadoKeyPressed(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
                 tfNumeroEmpleadoKeyTyped(evt);
             }
         });
 
         tfHoraSalida.setBackground(new java.awt.Color(0, 102, 204));
         tfHoraSalida.setEnabled(false);
-        tfHoraSalida.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tfHoraSalida.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tfHoraSalidaKeyPressed(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
                 tfHoraSalidaKeyTyped(evt);
+            }
+        });
+
+        btnRefrescar.setBackground(java.awt.Color.pink);
+        btnRefrescar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnRefrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/refresh.png"))); // NOI18N
+        btnRefrescar.setBorderPainted(false);
+        btnRefrescar.setContentAreaFilled(false);
+        btnRefrescar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnRefrescarActionPerformed(evt);
             }
         });
 
@@ -204,21 +244,30 @@ public class VtnAltasE extends javax.swing.JFrame
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
+                        .addGap(77, 77, 77)
                         .addComponent(btnRegresar)))
-                .addGap(26, 26, 26)
+                .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAceptar)
-                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(tfArea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                        .addComponent(tfTurno, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(tfNumeroEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(tfHoraSalida, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                        .addComponent(tfHoraEntrada, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(261, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(tfArea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                                .addComponent(tfTurno, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(tfNumeroEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(286, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(tfHoraSalida, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                                .addComponent(tfHoraEntrada, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(btnRefrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAceptar)
+                        .addGap(45, 45, 45))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,7 +303,11 @@ public class VtnAltasE extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAceptar)
-                    .addComponent(btnRegresar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnRefrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRegresar))))
                 .addGap(27, 27, 27))
         );
 
@@ -298,20 +351,22 @@ public class VtnAltasE extends javax.swing.JFrame
                 String horaEntrada = tfHoraEntrada.getText();
                 String horaSalida = tfHoraSalida.getText();
                 int estatus = 0;
-                int incidentes = 0;
+                int retardos = 0;
+                int salidasD = 0;
                 
-                Empleados obj = new Empleados(numeroEmpleado, nombre, edad, turno, area, horaEntrada, horaSalida, estatus, incidentes);
-                
+                Empleados obj = new Empleados(numeroEmpleado, nombre, edad, turno, area, horaEntrada, horaSalida, estatus, retardos, salidasD);
                 EntityManagerFactory emf = Persistence.createEntityManagerFactory("ESProyectoPU");
                 EmpleadosJpaController p = new EmpleadosJpaController(emf);
                 try
                 {
                     p.create(obj);
-                    Mensaje.exito(this, "dato insertado correctamente");
+                    Mensaje.exito(this, "Dato insertado correctamente");
+                    this.dispose();
                     //btnCancelarActionPerformed(evt);
                 } catch (Exception ex)
                 {
-                    Logger.getLogger(VtnAltasE.class.getName()).log(Level.SEVERE, null, ex);
+                    Mensaje.error(this, "El numero de empleado ya existe");
+                    
                 }
             }
         }
@@ -355,6 +410,7 @@ public class VtnAltasE extends javax.swing.JFrame
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void tfNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNombreKeyTyped
@@ -391,6 +447,12 @@ public class VtnAltasE extends javax.swing.JFrame
         // TODO add your handling code here:
         //Validaciones.validaEntero(evt);
     }//GEN-LAST:event_tfHoraSalidaKeyTyped
+
+    private void btnRefrescarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnRefrescarActionPerformed
+    {//GEN-HEADEREND:event_btnRefrescarActionPerformed
+        // TODO add your handling code here:
+        CtrlInterfaz.limpia(tfArea, tfEdad, tfHoraEntrada, tfHoraSalida, tfNombre, tfNumeroEmpleado, tfTurno);
+    }//GEN-LAST:event_btnRefrescarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -447,6 +509,7 @@ public class VtnAltasE extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnRefrescar;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

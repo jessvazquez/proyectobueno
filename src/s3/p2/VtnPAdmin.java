@@ -227,7 +227,7 @@ public class VtnPAdmin extends javax.swing.JFrame
     {//GEN-HEADEREND:event_mnuModificacionesAActionPerformed
         // TODO add your handling code here:
 
-        vtnModificacionesA vma = new vtnModificacionesA();
+        VtnModificacionesA vma = new VtnModificacionesA();
         vma.setVisible(true);
 
     }//GEN-LAST:event_mnuModificacionesAActionPerformed

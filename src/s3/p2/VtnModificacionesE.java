@@ -56,7 +56,7 @@ public class VtnModificacionesE extends javax.swing.JFrame
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         tfhoraSalida = new javax.swing.JTextField();
-        tfNumeroEmpleado2 = new javax.swing.JTextField();
+        tfNumeroEmpleado = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Modificaciones de empleados");
@@ -66,6 +66,13 @@ public class VtnModificacionesE extends javax.swing.JFrame
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back.png"))); // NOI18N
         btnRegresar.setBorderPainted(false);
         btnRegresar.setContentAreaFilled(false);
+        btnRegresar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnRegresarActionPerformed(evt);
+            }
+        });
 
         tfNombre.setBackground(new java.awt.Color(0, 102, 204));
         tfNombre.addKeyListener(new java.awt.event.KeyAdapter()
@@ -134,6 +141,7 @@ public class VtnModificacionesE extends javax.swing.JFrame
         });
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/submit_1.png"))); // NOI18N
+        btnAceptar.setText("Buscar");
         btnAceptar.setBorderPainted(false);
         btnAceptar.setContentAreaFilled(false);
         btnAceptar.addActionListener(new java.awt.event.ActionListener()
@@ -150,11 +158,11 @@ public class VtnModificacionesE extends javax.swing.JFrame
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Numero de empleado:");
+        jLabel6.setText("Hora de entrada:");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Numero de empleado:");
+        jLabel7.setText("Hora de salida");
 
         tfhoraSalida.setBackground(new java.awt.Color(0, 102, 204));
         tfhoraSalida.setEnabled(false);
@@ -166,13 +174,13 @@ public class VtnModificacionesE extends javax.swing.JFrame
             }
         });
 
-        tfNumeroEmpleado2.setBackground(new java.awt.Color(0, 102, 204));
-        tfNumeroEmpleado2.setEnabled(false);
-        tfNumeroEmpleado2.addKeyListener(new java.awt.event.KeyAdapter()
+        tfNumeroEmpleado.setBackground(new java.awt.Color(0, 102, 204));
+        tfNumeroEmpleado.setEnabled(false);
+        tfNumeroEmpleado.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyPressed(java.awt.event.KeyEvent evt)
             {
-                tfNumeroEmpleado2KeyPressed(evt);
+                tfNumeroEmpleadoKeyPressed(evt);
             }
         });
 
@@ -183,7 +191,7 @@ public class VtnModificacionesE extends javax.swing.JFrame
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(189, 189, 189)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addComponent(btnAceptar)
                 .addGap(66, 66, 66))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -204,7 +212,7 @@ public class VtnModificacionesE extends javax.swing.JFrame
                             .addComponent(tfArea, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfNumeroEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(tfNumeroEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -232,7 +240,7 @@ public class VtnModificacionesE extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNumeroEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNumeroEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,7 +249,7 @@ public class VtnModificacionesE extends javax.swing.JFrame
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfhoraSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnAceptar)
                     .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -259,23 +267,40 @@ public class VtnModificacionesE extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+    private void tfNumeroEmpleadoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfNumeroEmpleadoKeyPressed
+    {//GEN-HEADEREND:event_tfNumeroEmpleadoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNumeroEmpleadoKeyPressed
+
+    private void tfhoraSalidaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfhoraSalidaKeyPressed
+    {//GEN-HEADEREND:event_tfhoraSalidaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfhoraSalidaKeyPressed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAceptarActionPerformed
+    {//GEN-HEADEREND:event_btnAceptarActionPerformed
         this.setCursor(Cursor.WAIT_CURSOR);
         if (btnAceptar.getText().equals("Buscar"))
         {
             String numeroEmpleado = JOptionPane.showInputDialog(this,
-                    "Dame el numero de empleado a modificar :");
+                "Dame el numero de empleado a modificar :");
             if (numeroEmpleado != null)
             {
                 EntityManagerFactory emf = Persistence.createEntityManagerFactory("ESProyectoPU");
@@ -291,7 +316,7 @@ public class VtnModificacionesE extends javax.swing.JFrame
                     tfEdad.setText(String.valueOf(ap.getEdad()));
                     tfTurno.setText(ap.getTurno());
                     tfArea.setText(ap.getArea());
-                    tfhoraEntrada.setText(String.valueOf(ap.getNumeroEmpleado()));
+                    tfNumeroEmpleado.setText(String.valueOf(ap.getNumeroEmpleado()));
                     tfhoraEntrada.setText(String.valueOf(ap.getHoraEntrada()));
                     tfhoraSalida.setText(String.valueOf(ap.getHoraSalida()));
                     this.setCursor(Cursor.DEFAULT_CURSOR);// TODO add your handling code here:
@@ -328,8 +353,7 @@ public class VtnModificacionesE extends javax.swing.JFrame
 
                     if (Mensaje.pregunta(this, "Esta seguro de modificar este registro") == 0)
                     {
-                        Empleados obj = new Empleados(numeroEmpleado, nombre, edad, turno, area, horaEntrada, horaSalida, 0, 0);
-
+                        Empleados obj = new Empleados(numeroEmpleado, nombre, edad, turno, area, horaEntrada, horaSalida, edad, edad, numeroEmpleado);
                         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ESProyectoPU");
                         EmpleadosJpaController p = new EmpleadosJpaController(emf);
 
@@ -348,40 +372,41 @@ public class VtnModificacionesE extends javax.swing.JFrame
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
-    private void tfNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNombreKeyPressed
-        // TODO add your handling code here:
-        Validaciones.enter(this, evt, tfEdad);
-    }//GEN-LAST:event_tfNombreKeyPressed
-
-    private void tfEdadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfEdadKeyPressed
-        // TODO add your handling code here:
-        Validaciones.enter(this, evt, tfTurno);
-    }//GEN-LAST:event_tfEdadKeyPressed
-
-    private void tfTurnoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfTurnoKeyPressed
+    private void tfTurnoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfTurnoKeyPressed
+    {//GEN-HEADEREND:event_tfTurnoKeyPressed
         // TODO add your handling code here:
         Validaciones.enter(this, evt, tfArea);
     }//GEN-LAST:event_tfTurnoKeyPressed
 
-    private void tfAreaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAreaKeyPressed
-        // TODO add your handling code here:
-        Validaciones.enter(this, evt, tfhoraEntrada);
-    }//GEN-LAST:event_tfAreaKeyPressed
-
-    private void tfhoraEntradaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfhoraEntradaKeyPressed
+    private void tfhoraEntradaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfhoraEntradaKeyPressed
+    {//GEN-HEADEREND:event_tfhoraEntradaKeyPressed
         // TODO add your handling code here:
         Validaciones.enter(this, evt, btnAceptar);
     }//GEN-LAST:event_tfhoraEntradaKeyPressed
 
-    private void tfhoraSalidaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfhoraSalidaKeyPressed
-    {//GEN-HEADEREND:event_tfhoraSalidaKeyPressed
+    private void tfEdadKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfEdadKeyPressed
+    {//GEN-HEADEREND:event_tfEdadKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfhoraSalidaKeyPressed
+        Validaciones.enter(this, evt, tfTurno);
+    }//GEN-LAST:event_tfEdadKeyPressed
 
-    private void tfNumeroEmpleado2KeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfNumeroEmpleado2KeyPressed
-    {//GEN-HEADEREND:event_tfNumeroEmpleado2KeyPressed
+    private void tfAreaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfAreaKeyPressed
+    {//GEN-HEADEREND:event_tfAreaKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfNumeroEmpleado2KeyPressed
+        Validaciones.enter(this, evt, tfhoraEntrada);
+    }//GEN-LAST:event_tfAreaKeyPressed
+
+    private void tfNombreKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfNombreKeyPressed
+    {//GEN-HEADEREND:event_tfNombreKeyPressed
+        // TODO add your handling code here:
+        Validaciones.enter(this, evt, tfEdad);
+    }//GEN-LAST:event_tfNombreKeyPressed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnRegresarActionPerformed
+    {//GEN-HEADEREND:event_btnRegresarActionPerformed
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -443,7 +468,7 @@ public class VtnModificacionesE extends javax.swing.JFrame
     private javax.swing.JTextField tfArea;
     private javax.swing.JTextField tfEdad;
     private javax.swing.JTextField tfNombre;
-    private javax.swing.JTextField tfNumeroEmpleado2;
+    private javax.swing.JTextField tfNumeroEmpleado;
     private javax.swing.JTextField tfTurno;
     private javax.swing.JTextField tfhoraEntrada;
     private javax.swing.JTextField tfhoraSalida;

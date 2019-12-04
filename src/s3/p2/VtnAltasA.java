@@ -54,6 +54,7 @@ public class VtnAltasA extends javax.swing.JFrame
         tfContrasena = new javax.swing.JTextField();
         btnRegresar = new javax.swing.JButton();
         sad = new javax.swing.JLabel();
+        btnRefrescar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Altas de administradores");
@@ -211,6 +212,19 @@ public class VtnAltasA extends javax.swing.JFrame
         sad.setForeground(new java.awt.Color(255, 255, 255));
         sad.setText("Nombre:");
 
+        btnRefrescar.setBackground(java.awt.Color.pink);
+        btnRefrescar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnRefrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/refresh.png"))); // NOI18N
+        btnRefrescar.setBorderPainted(false);
+        btnRefrescar.setContentAreaFilled(false);
+        btnRefrescar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnRefrescarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -220,14 +234,18 @@ public class VtnAltasA extends javax.swing.JFrame
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sad, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(90, 90, 90)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(sad, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(90, 90, 90)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(84, 84, 84)
+                                .addComponent(btnRefrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -240,13 +258,9 @@ public class VtnAltasA extends javax.swing.JFrame
                                     .addComponent(tfNumeroEmpleado, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tfArea, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tfContrasena))))
-                        .addGap(0, 194, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(113, 113, 113))))
+                        .addGap(93, 93, 93)
+                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 94, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,10 +290,12 @@ public class VtnAltasA extends javax.swing.JFrame
                     .addComponent(dfs, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(btnRefrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -300,7 +316,7 @@ public class VtnAltasA extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        // TODO add your handling code here:
+        this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
@@ -308,7 +324,7 @@ public class VtnAltasA extends javax.swing.JFrame
         this.setCursor(Cursor.WAIT_CURSOR);
         String nombre = tfNombre.getText();
         int edad = 0;
-        int numeroEmpleado = 0;
+        String numeroEmpleado;
         if (!Validaciones.verificaEntero(tfEdad))
         {
             Mensaje.error(this, "se esperaba un entero");
@@ -324,26 +340,29 @@ public class VtnAltasA extends javax.swing.JFrame
                 edad = Integer.parseInt(tfEdad.getText());
                 String turno = tfTurno.getText();
                 String area = tfArea.getText();
-                numeroEmpleado = Integer.parseInt(tfNumeroEmpleado.getText());
+                numeroEmpleado = tfNumeroEmpleado.getText();
                 String contrasena = tfContrasena.getText();
 
-                Administradores obj = new Administradores(numeroEmpleado, nombre, edad, turno, area, contrasena);
+                Administradores obj = new Administradores(Integer.parseInt(numeroEmpleado), nombre, edad, turno, area, contrasena);
 
                 EntityManagerFactory emf = Persistence.createEntityManagerFactory("ESProyectoPU");
                 AdministradoresJpaController p = new AdministradoresJpaController(emf);
 
-                try
-                {
-                    p.create(obj);
-                    Mensaje.exito(this, "dato insertado correctamente");
-                    //btnCancelarActionPerformed(evt);
-                } catch (Exception ex)
-                {
-                    Logger.getLogger(VtnAltasA.class.getName()).log(Level.SEVERE, null, ex);
-                }
+
+                    try
+                    {
+                        p.create(obj);
+                        Mensaje.exito(this, "dato insertado correctamente");
+                        //btnCancelarActionPerformed(evt);
+                    } catch (Exception ex)
+                    {
+                        Mensaje.error(this, "El numero de empleado ya existe");
+                    }
+                
 
             }
         }
+        this.dispose();
         this.setCursor(Cursor.DEFAULT_CURSOR);// TODO add your handling code here:
     }//GEN-LAST:event_btnAceptarActionPerformed
 
@@ -415,6 +434,12 @@ public class VtnAltasA extends javax.swing.JFrame
         Validaciones.validaAlfanumerico(evt);
     }//GEN-LAST:event_tfContrasenaKeyTyped
 
+    private void btnRefrescarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnRefrescarActionPerformed
+    {//GEN-HEADEREND:event_btnRefrescarActionPerformed
+        // TODO add your handling code here:
+        CtrlInterfaz.limpia(tfArea, tfEdad, tfNombre, tfNumeroEmpleado, tfTurno, tfContrasena);
+    }//GEN-LAST:event_btnRefrescarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -462,6 +487,7 @@ public class VtnAltasA extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnRefrescar;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel dfs;
     private javax.swing.JLabel jLabel2;

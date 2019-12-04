@@ -173,5 +173,7 @@ public class AdministradoresJpaController implements Serializable
             em.close();
         }
     }
+
+
     
 }
