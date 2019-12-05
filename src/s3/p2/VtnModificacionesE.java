@@ -20,6 +20,12 @@ import javax.swing.JOptionPane;
 public class VtnModificacionesE extends javax.swing.JFrame
 {
 
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("ESProyectoPU");
+    EmpleadosJpaController p = new EmpleadosJpaController(emf);
+    int estatus = 0;
+    int retardos = 0;
+    int salidasD = 0;
+
     int pos = -1;
 
     /**
@@ -300,13 +306,14 @@ public class VtnModificacionesE extends javax.swing.JFrame
         if (btnAceptar.getText().equals("Buscar"))
         {
             String numeroEmpleado = JOptionPane.showInputDialog(this,
-                "Dame el numero de empleado a modificar :");
+                    "Dame el numero de empleado a modificar :");
             if (numeroEmpleado != null)
             {
-                EntityManagerFactory emf = Persistence.createEntityManagerFactory("ESProyectoPU");
-                EmpleadosJpaController p = new EmpleadosJpaController(emf);
 
                 Empleados ap = p.findEmpleados(Integer.parseInt(numeroEmpleado));
+                estatus = ap.getEstatus();
+                retardos = ap.getRetardos();
+                salidasD = ap.getSalidasDestiempo();
 
                 if (ap != null)
                 {
@@ -338,35 +345,30 @@ public class VtnModificacionesE extends javax.swing.JFrame
                 CtrlInterfaz.cambia(tfEdad);
             } else
             {
-                if (!Validaciones.verificaEntero(tfhoraEntrada))
-                {
-                    Mensaje.error(this, "se esperaba un entero");
-                    CtrlInterfaz.cambia(tfhoraEntrada);
-                } else
-                {
-                    edad = Integer.parseInt(tfEdad.getText());
-                    String turno = tfTurno.getText();
-                    numeroEmpleado = Integer.parseInt(tfhoraEntrada.getText());
-                    String area = tfArea.getText();
-                    String horaEntrada = tfhoraEntrada.getText();
-                    String horaSalida = tfhoraSalida.getText();
 
-                    if (Mensaje.pregunta(this, "Esta seguro de modificar este registro") == 0)
+                CtrlInterfaz.cambia(tfhoraEntrada);
+                edad = Integer.parseInt(tfEdad.getText());
+                String turno = tfTurno.getText();
+                numeroEmpleado = Integer.parseInt(tfhoraEntrada.getText());
+                String area = tfArea.getText();
+                String horaEntrada = tfhoraEntrada.getText();
+                String horaSalida = tfhoraSalida.getText();
+
+                if (Mensaje.pregunta(this, "Esta seguro de modificar este registro") == 0)
+                {
+
+                    Empleados obj = new Empleados(numeroEmpleado, nombre, edad, turno, area, horaEntrada, horaSalida, estatus, retardos, salidasD);
+
+                    try
                     {
-                        Empleados obj = new Empleados(numeroEmpleado, nombre, edad, turno, area, horaEntrada, horaSalida, edad, edad, numeroEmpleado);
-                        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ESProyectoPU");
-                        EmpleadosJpaController p = new EmpleadosJpaController(emf);
-
-                        try
-                        {
-                            p.edit(obj);
-                            Mensaje.exito(this, "Dato modificado correctamente!");
-                        } catch (Exception ex)
-                        {
-                            Mensaje.error(this, "Error..." + ex.toString());
-                        }
+                        p.edit(obj);
+                        Mensaje.exito(this, "Dato modificado correctamente!");
+                    } catch (Exception ex)
+                    {
+                        Mensaje.error(this, "Error..." + ex.toString());
                     }
                 }
+
             }
             this.setCursor(Cursor.DEFAULT_CURSOR);
         }
@@ -381,7 +383,7 @@ public class VtnModificacionesE extends javax.swing.JFrame
     private void tfhoraEntradaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfhoraEntradaKeyPressed
     {//GEN-HEADEREND:event_tfhoraEntradaKeyPressed
         // TODO add your handling code here:
-        Validaciones.enter(this, evt, btnAceptar);
+        Validaciones.enter(this, evt, tfhoraSalida);
     }//GEN-LAST:event_tfhoraEntradaKeyPressed
 
     private void tfEdadKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_tfEdadKeyPressed
